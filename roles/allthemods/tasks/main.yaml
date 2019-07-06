@@ -1,0 +1,22 @@
+---
+- name: Create data dir
+  file:
+    path: /var/minecraft/allthemods
+    state: directory
+  become: yes
+
+- name: Start allthemods server
+  docker_container:
+    name: allthemods
+    image: itzg/minecraft-server
+    published_ports:
+      - 25565:25565
+    volumes:
+      - /var/minecraft/allthemods:/data
+    env:
+      EULA: "TRUE"
+      TYPE: CURSEFORGE
+      CF_SERVER_MOD: https://www.curseforge.com/minecraft/modpacks/all-the-mods-3/download/2721020/file
+      ENABLE_RCON: "false"
+      SNOOPER_ENABLED: "false"
+  become: yes

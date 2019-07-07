@@ -19,4 +19,5 @@
       CF_SERVER_MOD: https://www.curseforge.com/minecraft/modpacks/all-the-mods-3/download/2721020/file
       ENABLE_RCON: "false"
       SNOOPER_ENABLED: "false"
+      MEMORY: 7G
   become: yes
